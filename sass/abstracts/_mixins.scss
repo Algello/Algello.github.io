@@ -1,0 +1,153 @@
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (
+          eot: "?",
+          svg: "#" + str-replace($name, " ", "_")
+  );
+
+  $formats: (
+          otf: "opentype",
+          ttf: "truetype"
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+
+
+@mixin a-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+
+
+//Media query manager
+
+/*
+0 - 600px:       Phone
+600px - 900px:   Tablet portrait
+900px - 1200px:  Tablet landscape
+[1200px - 1800px] is where our normal styles apply
+1800px + :       Big desktop
+
+Breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + Typography -> General layout + Grid -> Page layout -> Components
+
+1em = 16px
+ */
+
+@mixin respond($breakpoint) {
+  @if($breakpoint == phone) {
+    @media (max-width: 37.5em) {@content};    //600px
+  }
+  @if($breakpoint == tab-port) {
+    @media (max-width: 56.25em) {@content};    //900px
+  }
+  @if($breakpoint == tab-land) {
+    @media (max-width: 62.5em) {@content};    //1000 / 16 = 75em
+  }
+  @if($breakpoint == desktop) {
+    @media (max-width: 81.25em) {@content};    //1000 / 16 = 75em
+  }
+}
+
+// =============================================================================
+// Simple Nav
+// =============================================================================
+
+@mixin nav($color) {
+  & > ul > li {
+    display: inline;
+  }
+  & > ul > li > a {
+    color: $color;
+    display:inline-block;
+    margin:0;
+    text-decoration:none;
+  }
+}
+
+@mixin btn($color, $bg-color) {
+    display: inline-block;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 1.2rem 1.2rem;
+
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none !important;
+    outline: none;
+
+    color: $color;
+    background-color: $bg-color;
+    border: 0 none;
+    border-radius: 0;
+
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: 1.3;
+
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+
+    &:active {
+      background-color: darken($bg-color, 3);
+    }
+
+    &:hover {
+      background-color: darken($bg-color, 3);
+    }
+}
+
+@mixin underline($color, $margin, $width, $height) {
+  &:after {
+    display: table;
+    content: '';
+    position: relative;
+    width: $width;
+    border-bottom: $height solid $color;
+    margin: $margin auto 0;
+  }
+}

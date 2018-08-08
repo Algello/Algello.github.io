@@ -1,0 +1,38 @@
+.services {
+  @include row-flex();
+  &__item {
+    @include col();
+    @include size(3);
+    @include size-sm(6);
+    @include size-xs(12);
+    @include respond(phone) {
+      margin-bottom: 5rem;
+    }
+    display: flex;
+    flex-direction: column;
+    &:first-child {
+      @include respond(tab-port) {
+        margin-bottom: 4rem;
+      }
+    }
+  }
+  &__img {
+    margin-bottom: 6rem;
+    max-height: 130px;
+  }
+  &__name {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+  &__text {
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 2.4rem;
+    @include respond(phone) {
+      font-size: 2rem;
+    }
+  }
+}

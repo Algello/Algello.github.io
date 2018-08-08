@@ -1,0 +1,148 @@
+.our-services {
+  padding-top: 12rem;
+  padding-bottom: 11rem;
+  background-color: $color-light-sea-green;
+  color: $color-white;
+  text-align: center;
+
+  .h2 {
+    margin-bottom: 2rem;
+  }
+
+  .h5 {
+    margin-bottom: 8.1rem;
+  }
+  @include respond(tab-port) {
+    padding-top: 8rem;
+    padding-bottom: 7rem;
+  }
+}
+
+.our-team {
+  padding-top: 11rem;
+  padding-bottom: 11rem;
+  background-color: $color-sail;
+  color: $color-blue-dark;
+  text-align: center;
+  .h2 {
+    margin-bottom: 2rem;
+  }
+
+  .h5 {
+    margin-bottom: 8.1rem;
+    font-size: 1.9rem;
+    font-weight: 400;
+    line-height: 2.7rem;
+  }
+  @include respond(tab-port) {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+.our-skills {
+  padding-top: 11rem;
+  padding-bottom: 11rem;
+  background-color: $color-white;
+  color: $color-blue-dark;
+  text-align: center;
+
+  .h2 {
+    margin-bottom: 2rem;
+  }
+
+  .h5 {
+    margin-bottom: 8.1rem;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 2.6rem;
+  }
+  @include respond(tab-port) {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+.our-portfolio {
+  padding-top: 11rem;
+  padding-bottom: 11rem;
+  background-color: #fd9;
+  color: #393939;
+  text-align: center;
+
+  .h2 {
+    margin-bottom: 2rem;
+    font-weight: 700;
+    line-height: 3rem;
+    text-transform: uppercase;
+  }
+
+  .h5 {
+    margin-bottom: 8.1rem;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 2.6rem;
+  }
+  @include respond(tab-port) {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+.our-testimonials {
+  padding-top: 11rem;
+  padding-bottom: 14rem;
+  background-color: $color-cranberry;
+  color: $color-white;
+
+  .h2 {
+    margin-bottom: 2rem;
+    font-weight: 700;
+    line-height: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .h5 {
+    text-align: center;
+    margin-bottom: 7rem;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 2.6rem;
+  }
+  @include respond(tab-port) {
+    padding-top: 7rem;
+    padding-bottom: 10rem;
+  }
+}
+
+
+.our-contacts {
+  padding-top: 11rem;
+  padding-bottom: 11rem;
+  background-color: $color-blue-light;
+  color: $color-white;
+
+  .h2 {
+    margin-bottom: 2rem;
+    font-weight: 700;
+    line-height: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .h5 {
+    text-align: center;
+    margin-bottom: 7rem;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 2.6rem;
+  }
+  @include respond(tab-port) {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+
+

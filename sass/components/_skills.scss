@@ -1,0 +1,45 @@
+.skills {
+  @include row-flex();
+  .skill {
+    @include col();
+    @include size(3);
+    @include size-sm(6);
+    @include size-xs(12);
+    @include respond(phone) {
+      margin-bottom: 3rem;
+    }
+    &__bar {
+      margin-bottom: 3rem;
+      position: relative;
+      canvas {
+        opacity: 1;
+      }
+      &::after {
+        content: '';
+        display: block;
+        opacity: .1;
+        width: 165px;
+        height: 165px;
+        border-radius: 50%;
+        border: 15px solid #6c757d;
+        position: absolute;
+        top: 2px;
+        left: 38px;
+        @include respond(desktop) {
+          display: none;
+        }
+      }
+    }
+    &__name {
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1.8rem;
+      text-transform: uppercase;
+    }
+    &:first-child {
+      @include respond(tab-port) {
+        margin-bottom: 4rem;
+      }
+    }
+  }
+}
